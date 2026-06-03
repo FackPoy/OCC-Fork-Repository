@@ -15,15 +15,14 @@ permissions:
  contents: read
 
 jobs:
- runs-on: ubuntu-latest
-
- steps:
+  runs-on: ubuntu-latest
+  steps:
  # Step 1: Checkout Repository
- - name: Checkout Repository
- uses: actions/checkout@v4
+  - name: Checkout Repository
+  uses: actions/checkout@v4
  # Step 2: Run Checkmarx AST Scan
- - name: Checkmarx AST Github Action
- uses: Checkmarx/ast-github-action@2.3.36
+  - name: Checkmarx AST Github Action
+  uses: Checkmarx/ast-github-action@2.3.36
  with:
  # Provide the AST portal URL
  base_uri: https://sng.ast.checkmarx.net
