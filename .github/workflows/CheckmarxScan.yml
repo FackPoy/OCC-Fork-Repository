@@ -15,21 +15,15 @@ permissions:
  contents: read
 
 jobs:
- checkmarx-ast:
- permissions:
- contents: read # Required for actions/checkout to fetch code
- security-events: write # Needed for GitHub/codeql-action/upload-sarif
- actions: read # Only required for private repositories
-
  runs-on: ubuntu-latest
 
  steps:
  # Step 1: Checkout Repository
  - name: Checkout Repository
- uses: actions/checkout@v3
+ uses: actions/checkout@v4
  # Step 2: Run Checkmarx AST Scan
  - name: Checkmarx AST Github Action
- uses: Checkmarx/ast-github-action@2.3.33
+ uses: Checkmarx/ast-github-action@2.3.36
  with:
  # Provide the AST portal URL
  base_uri: https://sng.ast.checkmarx.net
