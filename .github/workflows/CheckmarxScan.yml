@@ -2,11 +2,11 @@ name: Checkmarx Security Scan
 on:
  push:
    branches:
-     - master
+- master
  pull_request:
    types: [opened, reopened, synchronize]
    branches:
-     - master
+- master
  workflow_dispatch:
 permissions:
  contents: read
@@ -25,16 +25,15 @@ jobs:
      - name: Checkmarx AST Github Action
        uses: Checkmarx/ast-github-action@2.3.33
        with:
-       # Provide the AST portal URL
-        base_uri: https://sng.ast.checkmarx.net
-       # Provide the Tenant for AST portal URL
-        cx_tenant: sng_partners
-      # Client ID for AST portal authentication
-        cx_client_id: ${{ secrets.CX_CLIENT_ID }}
-      # Secret key for AST portal authentication
-        cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
-   # Select a Checkmarx Project Name
-        project_name: ${{ github.repository }}
-   # Branch name
-        branch:  ${{ github.head_ref || github.ref }}
-        additional_params: --report-format pdf # To generate report in PDF file format
+    # Provide the AST portal URL
+       base_uri: https://sng.ast.checkmarx.net
+# Provide the Tenant for AST portal URL
+       cx_tenant: sng_partners
+   # Client ID for AST portal authentication
+       cx_client_id: ${{ secrets.CX_CLIENT_ID }}
+      # Secret key for AST portal authentication
+       cx_client_secret: ${{ secrets.CX_CLIENT_SECRET }}
+     # Select a Checkmarx Project Name
+       project_name: ${{ github.repository }}
+     # Branch name
+      additional_params: --report-format pdf # To generate report in PDF file format
